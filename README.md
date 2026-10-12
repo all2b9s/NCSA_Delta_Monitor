@@ -1,4 +1,4 @@
-# Cluster Monitor
+# NCSA_Delta_Monitor
 
 Read-only VSCode panel for Slurm clusters (developed on NCSA Delta). Shows:
 
@@ -31,4 +31,4 @@ Then run **Developer: Reload Window**. Click the `R.. PD..` item in the status b
 
 - Queue position is an estimate: pending jobs in the same partition with higher priority, plus one. Backfill is not modelled.
 - `node collector.js` prints the raw JSON snapshot, useful for debugging or other front ends.
-# NCSA_Delta_Monitor
+
