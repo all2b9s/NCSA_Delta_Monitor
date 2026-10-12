@@ -1,0 +1,38 @@
+{
+  "name": "cluster-monitor",
+  "displayName": "Cluster Monitor",
+  "description": "Read-only Slurm dashboard: cluster load, job priority breakdown and job status.",
+  "version": "0.1.0",
+  "publisher": "bdsp",
+  "engines": { "vscode": "^1.80.0" },
+  "extensionKind": ["workspace"],
+  "main": "./extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "commands": [
+      { "command": "clusterMonitor.open", "title": "Cluster Monitor: Open Panel" }
+    ],
+    "configuration": {
+      "title": "Cluster Monitor",
+      "properties": {
+        "clusterMonitor.refreshSeconds": {
+          "type": "number",
+          "default": 30,
+          "minimum": 10,
+          "description": "Polling interval. Keep it >= 30 to be gentle on the Slurm controller."
+        },
+        "clusterMonitor.partitions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": [],
+          "description": "Partitions to show. Empty = all partitions."
+        },
+        "clusterMonitor.recentHours": {
+          "type": "number",
+          "default": 24,
+          "description": "How far back to list finished jobs."
+        }
+      }
+    }
+  }
+}
